@@ -1,0 +1,39 @@
+<MainBoxLayout>:
+    orientation: 'vertical'
+
+    BoxLayout:
+        size_hint_y: None
+        height: '48dp'
+
+        TextInput:
+            id: input_number
+            text: '4.1'
+            font_size: '32sp'
+            size_hint_x: 0.3
+            multiline: False
+            input_filter: 'float'  # Allow only floats to be entered
+            background_color: 1, 1, 1, 1  # White background
+
+        Button:
+            text: 'Square'
+            size_hint_x: 0.2
+            on_press: root.calculate_square()
+            background_color: 0.5, 0.5, 0.5, 1  # Grey background
+
+        Label:
+            id: output_label
+            text: '16.81'
+            size_hint_x: 0.5
+            color: 1, 0, 0, 1  # Red text
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 1  # Black background
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+    Label:
+        text: "Enter a number and press 'Square'"
+        size_hint_y: None
+        height: '24dp'
+        halign: 'center'
