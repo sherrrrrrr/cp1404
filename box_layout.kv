@@ -1,0 +1,56 @@
+<Converter>:
+    orientation: 'vertical'
+
+    Button:
+        text: 'Clear'
+        on_press: root.handle_clear()
+        size_hint_y: None
+        height: '40dp'
+        color: 1, 1, 1, 1  # White text color
+        background_normal: ''  # Required for custom background color
+        background_color: 0.5, 0.5, 0.5, 1  # Grey background
+
+    # Add this to consume the space and push everything else to the top
+    Widget:
+        size_hint_y: None
+        height: '10dp'
+
+    TextInput:
+        id: input_name
+        text: 'Guido'
+        multiline: False
+        font_size: '20sp'
+        size_hint_y: None
+        height: '40dp'
+        background_normal: ''  # Required for custom background color
+        background_color: 1, 1, 1, 1  # White background
+        foreground_color: 0, 0, 0, 1  # Grey text color
+        padding_x: '10dp'  # Left alignment padding
+        padding_y: '10dp'  # Top alignment padding
+
+    Widget:
+        size_hint_y: None
+        height: '10dp'
+
+    Button:
+        text: 'Greet'
+        on_press: root.handle_greet()
+        size_hint_y: None
+        height: '40dp'
+        color: 1, 1, 1, 1  # White text color
+        background_normal: ''  # Required for custom background color
+        background_color: 0.5, 0.5, 0.5, 1  # Grey background
+
+    Label:
+        id: result_label
+        text: 'Hello Guido'
+        font_size: '20sp'
+        size_hint_y: None
+        height: '40dp'
+        color: 1, 1, 0, 1  # Yellow text color
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0, 1  # Black background
+            Rectangle:
+                pos: self.pos
+                size: self.size

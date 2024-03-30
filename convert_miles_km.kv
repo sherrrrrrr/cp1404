@@ -1,0 +1,55 @@
+<Converter>:
+    orientation: 'vertical'
+    spacing: dp(10)
+    BoxLayout:
+        size_hint_y: None
+        height: dp(48)
+
+        TextInput:
+            id: input_miles
+            text: '34'
+            multiline: False
+            font_size: '32sp'
+            halign: 'right'
+            padding_x: [dp(10), dp(10)]
+            size_hint_x: 0.6
+            background_normal: ''  # Removes default styling
+            background_color: 1, 1, 1, 1  # White background
+            foreground_color: 0, 0, 0, 1  # Black font color
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x: 0.4
+
+            Button:
+                text: 'Up'
+                size_hint_y: 0.5
+                on_press: root.increment(1)
+                background_color: 0.3, 0.3, 0.3, 1  # Darker button background
+                color: 1, 1, 1, 1  # White font color
+
+            Button:
+                text: 'Down'
+                size_hint_y: 0.5
+                on_press: root.increment(-1)
+                background_color: 0.3, 0.3, 0.3, 1  # Darker button background
+                color: 1, 1, 1, 1  # White font color
+
+    Button:
+        text: 'Convert miles to km'
+        size_hint_y: None
+        height: dp(48)
+        on_press: root.convert()
+        background_color: 0.5, 0.5, 0.5, 1  # Medium gray button background
+        color: 1, 1, 1, 1  # White font color
+
+    Label:
+        id: result_label
+        text: '54.71756'
+        font_size: '32sp'
+        size_hint_y: None
+        height: dp(48)
+        halign: 'right'
+        padding_x: dp(10)
+        color: 1, 0.8, 0, 1  # Yellow font color
+        # Add canvas instruction for background if needed
